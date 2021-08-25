@@ -1,19 +1,19 @@
 # SCATO-DashboardDesigner
-==========================================================================================
 
->>>>> SCATO Dashboard Designer v1.0.0 <<<<<
->>>>>       XAML and C# language.     <<<<<
+SCATO Dashboard Designer v1.0.0
+XAML and C# language.
 
->>>>> Requirements!
-1.	Minimum version of .NET Framework 4.6.1 installed.
-2.	Windows 7, 8, 10 are tested.
-3.	Using Visual Studio 2019 SP2 project, there is no idea to deploy 
-	the library for under this version.
-4.	running on x86 Architecture.
-==========================================================================================
+Requirements!
+
+	1. Minimum version of .NET Framework 4.6.1 installed.
+	2. Windows 7, 8, 10 are tested.
+	3. Using Visual Studio 2019 SP2 project, there is no idea to deploy 
+	 the library for under this version.
+	4. running on x86 Architecture.
 
 How To Install:
 	First, there are some different archieve file:
+	
 	1. SCATO_Installer.zip
 	   Contains of SCATO Setup file that are ready to Install (double click the setup.exe).
 
@@ -28,7 +28,7 @@ How To Install:
 	   Contains of SCATO Dashboard Designer without the library. for using this version,
 	   open the project and open the Package Manager Console and run 
 	   "Update-Package -reinstall".
-==========================================================================================
+
 
 Placement of Project Folder Root
 \Parent Folder
@@ -46,7 +46,7 @@ Placement of Project Folder Root
 		 ---Debug
 		    Release
 		    SCATO Setup.vdproj
-==========================================================================================
+
 
 Special Thank for
 1. Mr. Basuki (My Supporting Lecturer)
