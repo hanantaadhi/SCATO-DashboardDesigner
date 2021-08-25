@@ -1,0 +1,369 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+                    xmlns:s="clr-namespace:DashboardDesigner">
+    
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="Styles/Shared.xaml"/>
+    <ResourceDictionary Source="Styles/ToolBar.xaml"/>
+  </ResourceDictionary.MergedDictionaries>
+  <ToolBar x:Key="MyToolbar" Height="70">
+    <GroupBox Style="{StaticResource ToolbarGroup}" Margin="5,3,3,3">
+      <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+          <Button Margin="1" Style="{StaticResource ToolBarButtonBaseStyle}" ToolTip="New File"
+                  HorizontalContentAlignment="Left" Command="{x:Static ApplicationCommands.New}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="FileOutline" Width="20" Height="20" Foreground="DarkSlateGray"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1" Padding="2" HorizontalContentAlignment="Left" ToolTip="Open File"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static ApplicationCommands.Open}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="FolderOpenOutline" Width="20" Height="20" Foreground="DarkSlateGray"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1" Padding="2" HorizontalContentAlignment="Left" ToolTip="Save File"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static ApplicationCommands.Save}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="ContentSaveOutline" Width="20" Height="20" Foreground="DarkSlateGray"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1" Padding="2" HorizontalContentAlignment="Left" ToolTip="Print"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static ApplicationCommands.Print}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="Printer" Width="20" Height="20" Foreground="DarkSlateGray"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="0,2,0,2" Visibility="Collapsed">
+          <Button Margin="1" Padding="2" HorizontalContentAlignment="Left" ToolTip="Upload"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static s:DesignerCanvas.Upload}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="Upload" Width="16" Height="16"/>
+                <TextBlock Margin="3,0,3,0" Text="Upload" VerticalAlignment="Center" Grid.Column="1"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1" Padding="2" HorizontalContentAlignment="Left" ToolTip="Download"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static s:DesignerCanvas.Download}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="Download" Width="16" Height="16"/>
+                <TextBlock Margin="3,0,3,0" Text="Download" VerticalAlignment="Center" Grid.Column="1"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </GroupBox>
+    <GroupBox Style="{StaticResource ToolbarGroup}" Margin="3">
+      <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+          <Button Margin="1" Style="{StaticResource ToolBarButtonBaseStyle}" ToolTip="Paste"
+                  Command="{x:Static ApplicationCommands.Paste}" CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="ContentPaste" Width="20" Height="20"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1" Padding="2" HorizontalContentAlignment="Left" ToolTip="Cut"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static ApplicationCommands.Cut}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="ContentCut" Width="20" Height="20"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1" Padding="2" HorizontalContentAlignment="Left" ToolTip="Copy"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static ApplicationCommands.Copy}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="ContentCopy" Width="20" Height="20"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1" Padding="2" HorizontalContentAlignment="Left" ToolTip="Delete"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static ApplicationCommands.Delete}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="DeleteOutline" Width="20" Height="20"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+        </StackPanel>
+      </StackPanel>
+    </GroupBox>
+    <GroupBox Style="{StaticResource ToolbarGroup}" Margin="3">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Orientation="Horizontal">
+          <Border BorderBrush="{StaticResource ToolbarBorderBrush}" BorderThickness="1" CornerRadius="2" Margin="1">
+            <StackPanel Orientation="Horizontal">
+              <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}" ToolTip="Align Horizontal Left"
+                      Command="{x:Static s:DesignerCanvas.AlignLeft}" CommandTarget="{Binding ElementName=MyDesigner}">
+                <ContentControl.Content>
+                  <md:PackIcon Kind="AlignHorizontalLeft" Width="20" Height="20" Foreground="DarkSlateGray"/>
+                </ContentControl.Content>
+              </Button>
+              <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}" ToolTip="Align Horizontal Center"
+                      Command="{x:Static s:DesignerCanvas.AlignHorizontalCenters}"
+                      CommandTarget="{Binding ElementName=MyDesigner}">
+                <ContentControl.Content>
+                  <md:PackIcon Kind="AlignHorizontalCenter" Width="20" Height="20" Foreground="DarkSlateGray"/>
+                </ContentControl.Content>
+              </Button>
+              <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}" ToolTip="Align Horizontal Right"
+                      Command="{x:Static s:DesignerCanvas.AlignRight}" CommandTarget="{Binding ElementName=MyDesigner}">
+                <ContentControl.Content>
+                  <md:PackIcon Kind="AlignHorizontalRight" Width="20" Height="20" Foreground="DarkSlateGray"/>
+                </ContentControl.Content>
+              </Button>
+            </StackPanel>
+          </Border>
+          <Border BorderBrush="{StaticResource ToolbarBorderBrush}" BorderThickness="1" CornerRadius="2" Margin="1">
+            <StackPanel Orientation="Horizontal">
+              <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}" ToolTip="Align Vertical Top"
+                      Command="{x:Static s:DesignerCanvas.AlignTop}" CommandTarget="{Binding ElementName=MyDesigner}">
+                <ContentControl.Content>
+                  <md:PackIcon Kind="AlignVerticalTop" Width="20" Height="20" Foreground="DarkSlateGray"/>
+                </ContentControl.Content>
+              </Button>
+              <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}" ToolTip="Align Vertical Center"
+                      Command="{x:Static s:DesignerCanvas.AlignVerticalCenters}"
+                      CommandTarget="{Binding ElementName=MyDesigner}">
+                <ContentControl.Content>
+                  <md:PackIcon Kind="AlignVerticalCenter" Width="20" Height="20" Foreground="DarkSlateGray"/>
+                </ContentControl.Content>
+              </Button>
+              <Button Padding="5" Style="{StaticResource ToolBarButtonBaseStyle}" ToolTip="Align Vertical Bottom"
+                      Command="{x:Static s:DesignerCanvas.AlignBottom}" CommandTarget="{Binding ElementName=MyDesigner}">
+                <ContentControl.Content>
+                  <md:PackIcon Kind="AlignVerticalBottom" Width="20" Height="20" Foreground="DarkSlateGray"/>
+                </ContentControl.Content>
+              </Button>
+            </StackPanel>
+          </Border>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="1,0,0,0">
+          <Button Margin="1" Padding="4" HorizontalContentAlignment="Left" ToolTip="Distribute Horizontal"
+                  Style="{StaticResource ToolBarButtonBaseStyle}"
+                  Command="{x:Static s:DesignerCanvas.DistributeHorizontal}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="DistributeHorizontalCenter" Width="20" Height="20" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1" Padding="4" HorizontalContentAlignment="Left" ToolTip="Distribute Vertical"
+                  Style="{StaticResource ToolBarButtonBaseStyle}"
+                  Command="{x:Static s:DesignerCanvas.DistributeVertical}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="DistributeVerticalCenter" Width="20" Height="20" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+        </StackPanel>
+      </Grid>
+    </GroupBox>
+    <GroupBox Style="{StaticResource ToolbarGroup}" Margin="3">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal">
+          <Button Margin="1,0" Padding="4" HorizontalContentAlignment="Left" ToolTip="Group"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static s:DesignerCanvas.Group}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="Group" Width="20" Height="20" VerticalAlignment="Center"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1,0" Padding="4" HorizontalContentAlignment="Left" ToolTip="Ungroup"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static s:DesignerCanvas.Ungroup}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="Ungroup" Width="20" Height="20" VerticalAlignment="Center"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Margin="1,0,0,0">
+          <Button Margin="1,0" Padding="4" HorizontalContentAlignment="Left" ToolTip="Bring Forward"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static s:DesignerCanvas.BringForward}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="ArrangeBringForward" Width="20" Height="20" VerticalAlignment="Center"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1,0" Padding="5" HorizontalContentAlignment="Left" ToolTip="Bring To Front"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static s:DesignerCanvas.BringToFront}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="ArrangeBringToFront" Width="20" Height="20" VerticalAlignment="Center"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Horizontal">
+          <Button Margin="1,0" Padding="5" HorizontalContentAlignment="Left" ToolTip="Send Backward"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static s:DesignerCanvas.SendBackward}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="ArrangeSendBackward" Width="20" Height="20" VerticalAlignment="Center"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+          <Button Margin="1,0" Padding="5" HorizontalContentAlignment="Left" ToolTip="Send To Back"
+                  Style="{StaticResource ToolBarButtonBaseStyle}" Command="{x:Static s:DesignerCanvas.SendToBack}"
+                  CommandTarget="{Binding ElementName=MyDesigner}">
+            <ContentControl.Content>
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition/>
+                  <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <md:PackIcon Kind="ArrangeSendToBack" Width="20" Height="20" VerticalAlignment="Center"/>
+              </Grid>
+            </ContentControl.Content>
+          </Button>
+        </StackPanel>
+      </Grid>
+    </GroupBox>
+    <GroupBox Style="{StaticResource ToolbarGroup}" Margin="5,3,3,3" Visibility="Collapsed">
+      <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <Button Name="toolActivate" Margin="3" Width="65" Style="{StaticResource ToolBarButtonBaseStyle}"
+                HorizontalContentAlignment="Center" Command="{x:Static s:DesignerCanvas.ActivateRuntime}"
+                CommandTarget="{Binding ElementName=MyDesigner}">
+          <ContentControl.Content>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+              </Grid.RowDefinitions>
+              <md:PackIcon Kind="Play" Width="40" Height="40" HorizontalAlignment="Center"/>
+              <TextBlock Grid.Row="1" Text="Activate" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            </Grid>
+          </ContentControl.Content>
+        </Button>
+        <Button Name="toolDeactivate" Margin="3" Width="65" Style="{StaticResource ToolBarButtonBaseStyle}"
+                HorizontalContentAlignment="Center" Command="{x:Static s:DesignerCanvas.DeactivateRuntime}"
+                CommandTarget="{Binding ElementName=MyDesigner}">
+          <ContentControl.Content>
+            <Grid>
+              <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+              </Grid.RowDefinitions>
+              <md:PackIcon Kind="Stop" Width="40" Height="40" HorizontalAlignment="Center"/>
+              <TextBlock Grid.Row="1" Text="Deactivate" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            </Grid>
+          </ContentControl.Content>
+        </Button>
+      </StackPanel>
+    </GroupBox>
+  </ToolBar>
+</ResourceDictionary>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DashboardDesigner", "DashboardDesigner.csproj", "{98900F0B-8B93-4BA6-AE7D-FE051304E259}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SCATO Setup", "..\SCATO Setup\SCATO Setup.vdproj", "{B2A02E3B-58DD-411B-9E87-7090D5B19A34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98900F0B-8B93-4BA6-AE7D-FE051304E259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98900F0B-8B93-4BA6-AE7D-FE051304E259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98900F0B-8B93-4BA6-AE7D-FE051304E259}.Debug|x86.ActiveCfg = Debug|x86
+		{98900F0B-8B93-4BA6-AE7D-FE051304E259}.Debug|x86.Build.0 = Debug|x86
+		{98900F0B-8B93-4BA6-AE7D-FE051304E259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98900F0B-8B93-4BA6-AE7D-FE051304E259}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98900F0B-8B93-4BA6-AE7D-FE051304E259}.Release|x86.ActiveCfg = Release|x86
+		{98900F0B-8B93-4BA6-AE7D-FE051304E259}.Release|x86.Build.0 = Release|x86
+		{B2A02E3B-58DD-411B-9E87-7090D5B19A34}.Debug|Any CPU.ActiveCfg = Debug
+		{B2A02E3B-58DD-411B-9E87-7090D5B19A34}.Debug|x86.ActiveCfg = Debug
+		{B2A02E3B-58DD-411B-9E87-7090D5B19A34}.Release|Any CPU.ActiveCfg = Release
+		{B2A02E3B-58DD-411B-9E87-7090D5B19A34}.Release|x86.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22224E28-E881-4096-BC6F-4787416DC144}
+	EndGlobalSection
+EndGlobal

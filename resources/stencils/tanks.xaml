@@ -1,0 +1,89 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:DashboardDesigner"
+                    xmlns:c="clr-namespace:DashboardDesigner.Controls">
+  <s:Toolbox x:Key="SymbolStencils_Tanks" ItemSize="40,40">
+    <ItemsControl.Items>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520blue_002520front.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520blue_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520blue_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520gray_002520front.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520gray_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520gray_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520green_002520front.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520green_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520green_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520red_002520front.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520red_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520red_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520yellow_002520front.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520yellow_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank1_002520yellow_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520blue_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520blue_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520gray_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520gray_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520green_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520green_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520red_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520red_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520yellow_002520left.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank2_002520yellow_002520right.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank3_002520blue.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank3_002520gray.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank3_002520green.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank3_002520red.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank3_002520yellow.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank4_002520blue.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank4_002520gray.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank4_002520green.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank4_002520red.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank4_002520yellow.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank5_002520blue.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank5_002520gray.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank5_002520green.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank5_002520red.png"/>
+      <Image IsHitTestVisible="false" Stretch="Fill"
+             Source="tank5_002520yellow.png"/>
+    </ItemsControl.Items>
+  </s:Toolbox>
+</ResourceDictionary>

@@ -1,0 +1,36 @@
+﻿<Application x:Class="DashboardDesigner.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DashboardDesigner"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Shared.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/ToolBar.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/GroupBox.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/Expander.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/ScrollBar.xaml"/>
+                <ResourceDictionary Source="Resources/ApplicationToolbar.xaml"/>
+                <ResourceDictionary Source="Resources/DesignerItem.xaml"/>
+                <ResourceDictionary Source="Resources/ToolboxItem.xaml"/>
+                <ResourceDictionary Source="Resources/Toolbox.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/FlowChartStencils.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/ShapeStencils.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/Controls.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/Elbows.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/Motors.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/Pipes.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/Pumps.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/Tanks.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/Tees.xaml"/>
+                <ResourceDictionary Source="Resources/Stencils/Valves.xaml"/>
+                <ResourceDictionary Source="Resources/Properties.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Yellow.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

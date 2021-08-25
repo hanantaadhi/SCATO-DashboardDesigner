@@ -1,0 +1,123 @@
+<Page x:Class="DashboardDesigner.Page_Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:DashboardDesigner"
+      Loaded="Page_Loaded" Title="Page_Settings">
+    <Grid>
+        <StackPanel Background="White">
+            <DockPanel Background="LightGray">
+                <Button  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Click="btnSaveSet_Click" Name="btnSaveSet" DockPanel.Dock="Right" Margin="10" Background="Gray" BorderBrush="Gray">
+                    <StackPanel Orientation="Horizontal">
+                        <md:PackIcon Kind="ContentSave" VerticalAlignment="Center" Width="22" Height="22"/>
+                        <!--<TextBlock Text="Save Update" Margin="10 0"/>-->
+                    </StackPanel>
+                </Button>
+                <Button Click="btnAbout_Click" Name="btnAbout" Padding="0" Background="Transparent" Margin="5 0"
+              ToolTip="About" BorderBrush="{x:Null}">
+                    <md:PackIcon Kind="About" Width="34" Height="34" Foreground="Gray"/>
+                </Button>
+                <TextBlock/>
+            </DockPanel>
+            
+            <!--runtime-->
+            <Expander Header="Runtime" IsExpanded="true">
+                <StackPanel Margin="40 0">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="Plot Interval (s)" Width="150" VerticalAlignment="Center"/>
+                        <TextBox Name="txtRuntimePlotInterval" Text=""/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="Auto Maximize Window" Width="150" VerticalAlignment="Center"/>
+                        <CheckBox Name="chkRuntimeAutoMaximize" Margin="0 5"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="Auto Fullscreen" Width="150" VerticalAlignment="Center"/>
+                        <CheckBox Name="chkRuntimeAutoFullscreen" Margin="0 5"/>
+                    </DockPanel>
+                    <DockPanel>
+                            <TextBlock DockPanel.Dock="Left" Text="CSV Separator" Width="150" VerticalAlignment="Center"/>
+                            <TextBox Name="txtSeparator" Text=","/>
+                     </DockPanel>
+                    <TextBlock/>
+                    
+                </StackPanel>
+            </Expander>
+            <Separator/>
+            
+            <!--startup-->
+            <Expander Header="Startup" IsExpanded="true">
+                <StackPanel Margin="40 0">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="Auto Open Design" Width="150" VerticalAlignment="Center"/>
+                        <Button BorderBrush="LightGray" Background="LightGray" Style="{StaticResource MaterialDesignRaisedLightButton}" Click="btnBrowseStartupFile_Click" Name="btnBrowseStartupFile" DockPanel.Dock="Right"
+                    VerticalAlignment="Center" Margin="5 0">
+                            <TextBlock Text="..."/>
+                        </Button>
+                        <TextBox Name="txtStartupAutoOpenFile" Text=""/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="Auto Activate Design" Width="150" VerticalAlignment="Center"/>
+                        <CheckBox Name="chkStartupAutoActivate" Margin="0 5"/>
+                    </DockPanel>
+                    <TextBlock/>
+                </StackPanel>
+            </Expander>
+            <Separator/>
+
+            <Expander Header="Data Received" IsExpanded="True">
+                <StackPanel Margin="40 0">
+                    <DockPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition
+                                    Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <RichTextBox
+                                    MinWidth="280"
+                                    AcceptsReturn="True"
+                                    IsDocumentEnabled="True"
+                                    x:Name="DataReceived"
+                                    VerticalScrollBarVisibility="Auto"
+                                    SpellCheck.IsEnabled="True"
+                                    md:HintAssist.Hint="Multiline text"
+                                    Height="80"
+                                    Grid.Row="1">
+                                    <FlowDocument>
+                                        <Paragraph>
+                                            <Run FontWeight="Regular">
+                                                Data Received appear here.
+                                            </Run>
+                                        <LineBreak />
+                                    </Paragraph>
+                                    </FlowDocument>
+                                </RichTextBox>
+                        </Grid>
+                    </DockPanel>
+                </StackPanel>
+            </Expander>
+            <Separator/>
+            <Expander Header="Firebase Storage" IsExpanded="true" Visibility="Collapsed">
+                <StackPanel Margin="40 0">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="Storage Path" Width="150" VerticalAlignment="Center"/>
+                        <TextBox Name="txtFBStoragePath" Text=""/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="Database Path" Width="150" VerticalAlignment="Center"/>
+                        <TextBox Name="txtFBStorageFBPath" Text=""/>
+                    </DockPanel>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left" Text="Firebase Secret" Width="150" VerticalAlignment="Center"/>
+                        <PasswordBox Name="txtFBStorageFBSecret"/>
+                    </DockPanel>
+                    <TextBlock/>
+                </StackPanel>
+            </Expander>
+            <Separator Visibility="Collapsed"/>
+        </StackPanel>
+    </Grid>
+</Page>

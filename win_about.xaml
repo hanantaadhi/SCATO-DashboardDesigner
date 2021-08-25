@@ -1,0 +1,68 @@
+<Window x:Class="DashboardDesigner.Win_About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:DashboardDesigner"
+        Loaded="Window_Loaded" Title="About" Height="400" Width="400" WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" Icon="scato.ico">
+  <Grid>
+    <DockPanel>
+      <TextBlock DockPanel.Dock="Top" Height="10"/>
+      <TextBlock Margin="20 2" HorizontalAlignment="Center" DockPanel.Dock="Top" Text="SCATO - HMI Designer" FontSize="24" FontWeight="SemiBold"/>
+            <ProgressBar DockPanel.Dock="Top" IsIndeterminate="false" Background="Gray"/>
+            <TextBlock DockPanel.Dock="Top" Height="10"/>
+      <TextBlock Margin="20 2" DockPanel.Dock="Top" Text="SCADA Teknik Otomasi" FontSize="14"/>
+      <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+        <TextBlock Margin="20 2 0 0" Text="version " FontSize="14" FontStyle="Italic"/>
+        <TextBlock Name="lblVersion" Margin="5 2" Text="-" FontSize="14" FontStyle="Italic"/>
+      </StackPanel>
+      <TextBlock Margin="20 2" DockPanel.Dock="Top" Text="" Height="20"/>
+      <TextBlock Margin="20 2" DockPanel.Dock="Top" Text="Developed by:" FontSize="14" FontStyle="Italic"/>
+      <TextBlock Margin="20 2" DockPanel.Dock="Top" Text="Hananta Adhi" FontSize="14"/>
+      <TextBlock Margin="20 2" DockPanel.Dock="Top" Text="" Height="20"/>
+      <TextBlock Margin="20 2" DockPanel.Dock="Top" Text="Contact:" FontSize="14" FontStyle="Italic"/>
+      <TextBox Margin="20 2" DockPanel.Dock="Top" Text="hanantaadhi@student.ppns.ac.id" Foreground="Blue" FontSize="14"
+               IsReadOnly="true" BorderThickness="0"/>
+            
+            <TextBlock DockPanel.Dock="Top"/>
+            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Like Scato? Give us a 5 Star!" FontSize="14"/>
+            <TextBlock DockPanel.Dock="Bottom"/>
+      <DockPanel Dock="Bottom">
+        <TextBlock Name="lblVerStatus" Margin="20 2" DockPanel.Dock="Left" VerticalAlignment="Center" Text="-"
+                   FontSize="14" FontStyle="Italic"/>
+          
+        <md:DialogHost Name="dlgUpdate" Visibility="Collapsed">
+          <md:DialogHost.DialogContent>
+            <StackPanel Margin="16">
+              <TextBlock Text="The Scalare application will be closed !"/>
+              <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Click="btnUpdateApp_Click" Name="btnUpdate" Style="{StaticResource MaterialDesignFlatButton}"
+                        IsDefault="true" Margin="0 8 8 0" Command="md:DialogHost.CloseDialogCommand">
+                  <ButtonBase.CommandParameter>
+                    <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">True</system:Boolean>
+                  </ButtonBase.CommandParameter>OK</Button>
+                <Button Style="{StaticResource MaterialDesignFlatButton}" IsCancel="true" Margin="0 8 8 0"
+                        Command="md:DialogHost.CloseDialogCommand">
+                  <ButtonBase.CommandParameter>
+                    <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">False</system:Boolean>
+                  </ButtonBase.CommandParameter>CANCEL</Button>
+              </StackPanel>
+            </StackPanel>
+          </md:DialogHost.DialogContent>
+          <Border BorderBrush="{DynamicResource PrimaryHueMidBrush}" ClipToBounds="true">
+            <Button Style="{DynamicResource MaterialDesignFlatAccentBgButton}"
+                    Command="{x:Static md:DialogHost.OpenDialogCommand}" Width="100" HorizontalAlignment="Right"
+                    Margin="0 0 10 0">Update</Button>
+          </Border>
+        </md:DialogHost>
+      </DockPanel>
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                
+          <md:RatingBar x:Name="BasicRatingBar" Value="3" Margin="5 0" VerticalAlignment="Center"/>
+       
+      </StackPanel>
+    </DockPanel>
+  </Grid>
+</Window>

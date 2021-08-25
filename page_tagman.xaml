@@ -1,0 +1,425 @@
+<Page x:Class="DashboardDesigner.Page_TagMan"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:DashboardDesigner"
+      Loaded="Page_Loaded" Unloaded="Page_Unloaded" Title="Page_TagMan">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320*"/>
+            <ColumnDefinition Width="481*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Background="White"  Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="White" Margin="0 5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DockPanel Background="White" Margin="10 0">
+                    <TextBlock Text="Add Connections :" DockPanel.Dock="Left" VerticalAlignment="Center"/>
+                    <Button Click="btnAddCon_Click" Name="btnAddCon" DockPanel.Dock="Right"
+                  Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Background="Gray" BorderBrush="gray" ToolTip="Add" Margin="5 0"
+                  IsEnabled="false">
+                        <md:PackIcon Kind="Plus" Height="24" Width="24" Foreground="White"/>
+                    </Button>
+                    <TextBlock/>
+                </DockPanel>
+                <DockPanel Background="White" Grid.Row="1">
+                    <StackPanel Name="grdConn" DockPanel.Dock="Bottom" Background="#FFEAF0F5" Margin="2 0">
+                        <DockPanel>
+                            <StackPanel x:Name="pnlEditCon" Orientation="Horizontal" Visibility="Collapsed" DockPanel.Dock="Left">
+                                <Button Click="btnEditCon_Click" Name="btnEditCon" DockPanel.Dock="Right"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Padding="5" Width="30"
+                        Height="30" ToolTip="Edit" Margin="5">
+                                    <md:PackIcon Kind="Pencil" Height="20" Width="20" Foreground="White"/>
+                                </Button>
+                                <Button Click="btnDelCon_Click" Name="btnDelCon" DockPanel.Dock="Right"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniDarkButton}" Padding="5" Width="30"
+                        Height="30" ToolTip="Delete" Margin="5">
+                                    <md:PackIcon Kind="Minus" Height="20" Width="20" Foreground="White"/>
+                                </Button>
+                            </StackPanel>
+                        </DockPanel>
+                        <GroupBox x:Name="grpConName" Visibility="Collapsed">
+                            <HeaderedContentControl.Header>
+                                <DockPanel>
+                                    <StackPanel Name="pnlConOk" DockPanel.Dock="Right" Orientation="Horizontal" Visibility="Collapsed">
+                                        <Button Click="btnAddConOK_Click" Name="btnAddConOK"
+                                                Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Background="Gray"
+                                                BorderBrush="Gray" Padding="5" Width="30" Height="30" Margin="5 0">
+                                            <md:PackIcon Kind="Check" Height="20" Width="20" Foreground="White"/>
+                                        </Button>
+                                        <Button Click="btnAddConCancel_Click" Name="btnAddConCancel"
+                                                Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Background="Gray"
+                                                BorderBrush="Gray" Padding="5" Width="30" Height="30" Margin="5 0">
+                                            <md:PackIcon Kind="Close" Height="20" Width="20" Foreground="White"/>
+                                        </Button>
+                                    </StackPanel>
+                                    <TextBlock Name="txtConHeader" Text="Connection" Foreground="White" VerticalAlignment="Center"/>
+                                </DockPanel>
+                            </HeaderedContentControl.Header>
+                            <Grid Margin="10 0 10 10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="Name" Width="100" VerticalAlignment="Center"/>
+                                <TextBox Name="txtConName" Grid.Column="1"/>
+                                <TextBlock Grid.Row="1" Text="Interval (s)" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtConInterval" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Name="grpConModTCP" Header="Modbus TCP Connection" Visibility="Collapsed">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="IP" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtModTCPIP" Grid.Row="0" Grid.Column="1"/>
+                                <TextBlock Grid.Row="1" Text="Port" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtModTCPPort" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Name="grpConModRTU" Header="Modbus RTU Connection" Visibility="Collapsed">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="Port" Width="100" VerticalAlignment="Center"/>
+                                <ComboBox x:Name="cboModRTUPort" Grid.Row="0" Grid.Column="1"/>
+                                <TextBlock Grid.Row="1" Text="Baudrate" Width="100" VerticalAlignment="Center"/>
+                                <ComboBox x:Name="cboModRTUBaud" Grid.Row="1" Grid.Column="1">
+                                    <ComboBoxItem>9600</ComboBoxItem>
+                                    <ComboBoxItem>14400</ComboBoxItem>
+                                    <ComboBoxItem>19200</ComboBoxItem>
+                                    <ComboBoxItem>38400</ComboBoxItem>
+                                    <ComboBoxItem>56000</ComboBoxItem>
+                                    <ComboBoxItem>57600</ComboBoxItem>
+                                    <ComboBoxItem>115200</ComboBoxItem>
+                                    <ComboBoxItem>128000</ComboBoxItem>
+                                    <ComboBoxItem>256000</ComboBoxItem>
+                                </ComboBox>
+                                <TextBlock Grid.Row="2" Text="Parity" Width="100" VerticalAlignment="Center"/>
+                                <ComboBox x:Name="cboModRTUParity" Grid.Row="2" Grid.Column="1">
+                                    <ComboBoxItem>None</ComboBoxItem>
+                                    <ComboBoxItem>Odd</ComboBoxItem>
+                                    <ComboBoxItem>Even</ComboBoxItem>
+                                    <ComboBoxItem>Mark</ComboBoxItem>
+                                    <ComboBoxItem>Space</ComboBoxItem>
+                                </ComboBox>
+                                <TextBlock Grid.Row="3" Text="Slave ID" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtModRTUSlave" Grid.Row="3" Grid.Column="1"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Name="grpConIEC" Header="IEC104 Connection" Visibility="Collapsed">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="IP" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtIECIP" Grid.Row="0" Grid.Column="1"/>
+                                <TextBlock Grid.Row="1" Text="Port" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtIECPort" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Name="grpConMQTT" Header="MQTT Connection" Visibility="Collapsed">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="Host" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtMqttHost" Grid.Row="0" Grid.Column="1"/>
+                                <TextBlock Grid.Row="1" Text="Port" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtMqttPort" Grid.Row="1" Grid.Column="1"/>
+                                <TextBlock Grid.Row="2" Text="Username" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtMqttUser" Grid.Row="2" Grid.Column="1"/>
+                                <TextBlock Grid.Row="3" Text="Password" Width="100" VerticalAlignment="Center"/>
+                                <PasswordBox x:Name="txtMqttPass" Grid.Row="3" Grid.Column="1"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Name="grpConSQL" Header="SQL Connection" Visibility="Collapsed">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="Target" Width="100" VerticalAlignment="Center"/>
+                                <ComboBox x:Name="cboSqlTarget" Grid.Row="0" Grid.Column="1">
+                                    <ComboBoxItem>MS SQL Server</ComboBoxItem>
+                                    <ComboBoxItem>MySQL</ComboBoxItem>
+                                </ComboBox>
+                                <TextBlock Grid.Row="1" Text="Host" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtSqlHost" Grid.Row="1" Grid.Column="1"/>
+                                <TextBlock Grid.Row="2" Text="Username" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtSqlUser" Grid.Row="2" Grid.Column="1"/>
+                                <TextBlock Grid.Row="3" Text="Password" Width="100" VerticalAlignment="Center"/>
+                                <PasswordBox x:Name="txtSqlPass" Grid.Row="3" Grid.Column="1"/>
+                                <TextBlock Grid.Row="4" Text="Database" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtSqlDb" Grid.Row="4" Grid.Column="1"/>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Name="grpConFile" Header="File Connection" Visibility="Collapsed">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="40"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="Type" Width="100" VerticalAlignment="Center"/>
+                                <ComboBox x:Name="cboFileType" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                                    <ComboBoxItem>Table</ComboBoxItem>
+                                    <ComboBoxItem>Line</ComboBoxItem>
+                                </ComboBox>
+                                <TextBlock Grid.Row="1" Text="Separator" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtFileSeparator" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+                                <TextBlock Grid.Row="2" Text="File Name :" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtFileName" Grid.Row="3" Grid.ColumnSpan="3"/>
+                                <Button Click="btnFileBrowse_Click" x:Name="btnFileBrowse" Grid.Row="2" Grid.Column="2" Padding="0"
+                        Height="20" Margin="2">...</Button>
+                            </Grid>
+                        </GroupBox>
+                        <GroupBox Name="grpConFirebase" Header="Firebase Connection" Visibility="Collapsed">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="FB Path" Width="100" VerticalAlignment="Center"/>
+                                <TextBox x:Name="txtFBPath" Grid.Row="0" Grid.Column="1"/>
+                                <TextBlock Grid.Row="1" Text="FB Secret" Width="100" VerticalAlignment="Center"/>
+                                <PasswordBox x:Name="txtFBSecret" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                        </GroupBox>
+                    </StackPanel>
+                    <TreeView SelectedItemChanged="trvCon_SelectedItemChanged" Name="trvCon" Margin="10" FontSize="14" Background="White">
+                        <TreeViewItem>
+                            <HeaderedItemsControl.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <md:PackIcon Kind="LanConnect" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Device Connections" Margin="10 0"/>
+                                </StackPanel>
+                            </HeaderedItemsControl.Header>
+                            <TreeViewItem Visibility="Visible">
+                                <HeaderedItemsControl.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Modbus" Margin="10 0"/>
+                                    </StackPanel>
+                                </HeaderedItemsControl.Header>
+                                <TreeViewItem Selected="trvConModTCP_Selected" Unselected="trvConModTCP_Unselected" Name="trvConModTCP"
+                              Tag="ModTCP">
+                                    <HeaderedItemsControl.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="TCP" Margin="10 0"/>
+                                        </StackPanel>
+                                    </HeaderedItemsControl.Header>
+                                </TreeViewItem>
+                                <TreeViewItem Selected="trvConModRTU_Selected" Unselected="trvConModRTU_Unselected" Name="trvConModRTU"
+                              Tag="ModRTU">
+                                    <HeaderedItemsControl.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="RTU" Margin="10 0"/>
+                                        </StackPanel>
+                                    </HeaderedItemsControl.Header>
+                                </TreeViewItem>
+                            </TreeViewItem>
+                            
+                            <TreeViewItem Name="trvConMQTT" Tag="MQTT">
+                                <HeaderedItemsControl.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="MQTT" Margin="10 0"/>
+                                    </StackPanel>
+                                </HeaderedItemsControl.Header>
+                            </TreeViewItem>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <HeaderedItemsControl.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <md:PackIcon Kind="DatabasePlus" VerticalAlignment="Center"/>
+                                    <TextBlock Text="Data Connections" Margin="10 0"/>
+                                </StackPanel>
+                            </HeaderedItemsControl.Header>
+                            <TreeViewItem Name="trvConSQL" Visibility="Visible" Tag="SQL">
+                                <HeaderedItemsControl.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="SQL Database" Margin="10 0"/>
+                                    </StackPanel>
+                                </HeaderedItemsControl.Header>
+                            </TreeViewItem>
+                            <TreeViewItem Name="trvConFile" Visibility="Visible" Tag="File">
+                                <HeaderedItemsControl.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="CSV database File" Margin="10 0"/>
+                                    </StackPanel>
+                                </HeaderedItemsControl.Header>
+                            </TreeViewItem>
+                            <TreeViewItem Name="trvConFirebase" Tag="Firebase">
+                                <HeaderedItemsControl.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Firebase Database" Margin="10 0"/>
+                                    </StackPanel>
+                                </HeaderedItemsControl.Header>
+                            </TreeViewItem>
+                        </TreeViewItem>
+                    </TreeView>
+                </DockPanel>
+            </Grid>
+            <GridSplitter Focusable="false" Width="2" Background="LightGray" VerticalAlignment="Stretch"
+                    HorizontalAlignment="Right"/>
+            <DockPanel Background="White" Name="pnlTag" Grid.Column="1" Visibility="Visible">
+                <!--panel add connection-->
+                <StackPanel Name="pnlAddTag" DockPanel.Dock="Bottom" Visibility="Collapsed" Background="Gray">
+                    <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Background="Gray">
+                        <TextBlock Name="txtAddTagMode" Text="" VerticalAlignment="Center" Margin="10 0"/>
+                        <Button Click="btnAddTagOK_Click" Name="btnAddTagOK" Margin="5"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                            <md:PackIcon Kind="Check" Foreground="Gray"/>
+                        </Button>
+                        <Button Click="btnAddTagCancel_Click" Name="btnAddTagCancel" Margin="5 0 15 0"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                            <md:PackIcon Kind="Close" Foreground="Gray"/>
+                        </Button>
+                    </StackPanel>
+                    <GroupBox DockPanel.Dock="Bottom" Header="Tag">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="Name" Width="100" VerticalAlignment="Center"/>
+                            <TextBox x:Name="txtTagName" Grid.Row="0" Grid.Column="1"/>
+                            <TextBlock Grid.Row="1" Text="Connection" Width="100" VerticalAlignment="Center"/>
+                            <ComboBox SelectionChanged="cboTagCon_SelectionChanged" x:Name="cboTagCon" Grid.Row="1" Grid.Column="1"/>
+                            <TextBlock Grid.Row="2" Text="Address" Width="100" VerticalAlignment="Center"/>
+                            <DockPanel Grid.Row="2" Grid.Column="1">
+                                <!--<Button Click="btnBrowseOPCTag_Click" x:Name="btnBrowseOPCTag" DockPanel.Dock="Right" Padding="0"
+                        Height="20" Width="40" Margin="2" Visibility="Collapsed">...</Button>-->
+                                <TextBox x:Name="txtTagAddress"/>
+                            </DockPanel>
+                            <StackPanel Name="pnlDataType" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" Visibility="Collapsed">
+                                <TextBlock Text="Data Type" Width="100" VerticalAlignment="Center"/>
+                                <ComboBox Name="cboDataType"/>
+                            </StackPanel>
+                            <TextBlock Grid.Row="4"/>
+                        </Grid>
+                    </GroupBox>
+                </StackPanel>
+                <DockPanel Margin="10 0" Dock="Top" Height="45">
+                    <TextBlock Text="Tags :" DockPanel.Dock="Left" VerticalAlignment="Center"/>
+                    <Button Click="btnShowValue_Click" Name="btnShowValue" DockPanel.Dock="Right" Padding="5" Width="30"
+                  ToolTip="Show Value" Margin="2 0" IsEnabled="true" Visibility="Collapsed" Height="33" Background="Gray" BorderBrush="Gray" Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                        <md:PackIcon Name="iconBtnShowTagValue" Kind="EyeCheckOutline"/>
+                    </Button>
+                    <Button Click="btnExportTag_Click" Name="btnExportTag" DockPanel.Dock="Right" Padding="5" Width="30"
+                  ToolTip="Export" Margin="2 0" IsEnabled="true" Height="33" Background="Gray" BorderBrush="Gray" Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                        <md:PackIcon Kind="Export" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button Click="btnImportTag_Click" Name="btnImportTag" DockPanel.Dock="Right" Padding="5" Width="30"
+                  ToolTip="Import" Margin="2 0" IsEnabled="true" Height="33" Background="Gray" BorderBrush="Gray" Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                        <md:PackIcon Kind="Import" HorizontalAlignment="Center"/>
+                    </Button>
+                    <Button Click="btnDelTag_Click" Name="btnDelTag" DockPanel.Dock="Right" Padding="5" Width="30"
+                  ToolTip="Delete" Margin="2 0" IsEnabled="false" Height="33" Background="Gray" BorderBrush="Gray" Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                        <md:PackIcon Kind="Minus"/>
+                    </Button>
+                    <Button Click="btnEditTag_Click" Name="btnEditTag" DockPanel.Dock="Right" Padding="5" Width="30"
+                  ToolTip="Edit" Margin="2 0" IsEnabled="false" Height="33" Background="Gray" BorderBrush="Gray" Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                        <md:PackIcon Kind="Pencil"/>
+                    </Button>
+                    <Button Click="btnCopyTag_Click" Name="btnCopyTag" DockPanel.Dock="Right" Padding="5" Width="30"
+                  ToolTip="Copy" Margin="2 0" IsEnabled="false" Height="33" Background="Gray" BorderBrush="Gray" Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                        <md:PackIcon Kind="ContentCopy"/>
+                    </Button>
+                    <Button Click="btnAddTag_Click" Name="btnAddTag" DockPanel.Dock="Right" Padding="5" Width="30"
+                  ToolTip="Add" Margin="2,6,2,7" IsEnabled="true" Height="Auto" Background="Gray" BorderBrush="Gray" Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
+                        <md:PackIcon Kind="Plus"/>
+                    </Button>
+                    <TextBlock/>
+                </DockPanel>
+                <DataGrid SelectionChanged="dgTags_SelectionChanged" Name="dgTags" Grid.Row="1" Margin="2"
+                  AutoGenerateColumns="false" CanUserAddRows="false" SelectionMode="Single"
+                  ItemsSource="{Binding clsTag}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" IsReadOnly="true" Binding="{Binding Path=Name}"/>
+                        <DataGridTextColumn Header="Connection" IsReadOnly="true" Binding="{Binding Path=Connection}"/>
+                        <DataGridTextColumn Header="Address" IsReadOnly="true" Binding="{Binding Path=Address}"/>
+                        <DataGridTextColumn Header="Value" IsReadOnly="true" Visibility="Collapsed" x:Name="colTagValue"
+                                Binding="{Binding Path=Value}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+            
+        </Grid>
+    </Grid>
+</Page>

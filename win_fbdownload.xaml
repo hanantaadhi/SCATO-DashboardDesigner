@@ -1,0 +1,27 @@
+<Window x:Class="DashboardDesigner.Win_FBDownload"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DashboardDesigner"
+        Loaded="Window_Loaded" Title="Download from Firebase Storage" Height="450" Width="400"
+        ResizeMode="CanMinimize" Icon="scato.ico">
+  <Grid>
+    <DockPanel Background="DarkGray">
+      <Grid DockPanel.Dock="Bottom" Background="DarkGray">
+        <Button Click="btnDownload_Click" Name="btnDownload" Width="100" Margin="10" Background="DarkSlateGray">
+          <TextBlock Text="Download"/>
+        </Button>
+      </Grid>
+      <GroupBox Header="Available Dashboard files" Margin="5" Background="LightGray">
+        <DataGrid SelectionChanged="dgFiles_SelectionChanged" Name="dgFiles" AutoGenerateColumns="false" Background="LightGray"
+                  CanUserAddRows="false" SelectionMode="Single">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="Name" IsReadOnly="true" Binding="{Binding Path=Name}"/>
+            <DataGridTextColumn Header="Date" IsReadOnly="true" Binding="{Binding Path=Date}"/>
+          </DataGrid.Columns>
+        </DataGrid>
+      </GroupBox>
+    </DockPanel>
+  </Grid>
+</Window>

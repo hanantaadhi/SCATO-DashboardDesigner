@@ -1,0 +1,64 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+                    xmlns:s="clr-namespace:DashboardDesigner"
+                    xmlns:c="clr-namespace:DashboardDesigner.Controls">
+  <Grid x:Key="Properties_Canvas">
+    <StackPanel Orientation="Vertical">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.75*"/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Background Type" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+        <ComboBox Grid.Column="1" Foreground="DarkSlateGray">
+          <ComboBoxItem>No brush</ComboBoxItem>
+          <ComboBoxItem>Solid color brush</ComboBoxItem>
+          <ComboBoxItem>Gradient brush</ComboBoxItem>
+          <ComboBoxItem>Image</ComboBoxItem>
+        </ComboBox>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.75*"/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Background Color" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+        <ComboBox Grid.Column="1" Foreground="DarkSlateGray">
+          <ComboBoxItem>White</ComboBoxItem>
+          <ComboBoxItem>Silver</ComboBoxItem>
+          <ComboBoxItem>Gray</ComboBoxItem>
+          <ComboBoxItem>Blue</ComboBoxItem>
+          <ComboBoxItem>Green</ComboBoxItem>
+          <ComboBoxItem>Red</ComboBoxItem>
+          <ComboBoxItem>Black</ComboBoxItem>
+        </ComboBox>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.75*"/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Gradient Color 1" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+        <ComboBox Grid.Column="1" Foreground="DarkSlateGray"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.75*"/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Gradient Color 2" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+        <ComboBox Grid.Column="1" Foreground="DarkSlateGray"/>
+      </Grid>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="0.75*"/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Image" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+        <TextBox Grid.Column="1" Foreground="DarkSlateGray"/>
+      </Grid>
+    </StackPanel>
+  </Grid>
+</ResourceDictionary>
