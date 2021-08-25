@@ -31,7 +31,7 @@ How To Install:
 
 
 Placement of Project Folder Root
-[alt text](https://github.com/hananta23/SCATO-DashboardDesigner/blob/master/Screenshot	(84).png?raw=true)
+[alt text](https://github.com/hananta23/SCATO-DashboardDesigner/blob/master/Screenshot(84).png?raw=true)
 
 
 Special Thank for
