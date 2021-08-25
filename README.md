@@ -31,21 +31,7 @@ How To Install:
 
 
 Placement of Project Folder Root
-\Parent Folder
-	|
-	---\DashboardDesigner
-	|	 |
-	|	 ---DashboardDesigner.sln
-	|	    DashboardDesigner.csproj
-	|	    MainWindow.XAML
-	|	    Packages.XML
-	|	    ....
-	|
-	---\SCATO Setup
-		 |
-		 ---Debug
-		    Release
-		    SCATO Setup.vdproj
+[alt text](https://github.com/hananta23/SCATO-DashboardDesigner/blob/master/Screenshot	(84).png?raw=true)
 
 
 Special Thank for
